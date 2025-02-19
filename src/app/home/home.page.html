@@ -1,0 +1,254 @@
+<ion-content [fullscreen]="true" [scrollY]="true" [scrollEvents]="true" class="ion-padding-0"
+    (ionScroll)="onScroll($event)">
+    <!-- Navbar -->
+    <div class="fixed w-full z-50 transition-all duration-500 ease-in-out" [ngClass]="{
+      'bg-gray-900/95 backdrop-blur-md shadow-xl opacity-100': isScrolled,
+      'bg-transparent backdrop-blur-none shadow-none opacity-90': !isScrolled
+    }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#"
+                        class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                        Portfolio
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a *ngFor="let link of navLinks" (click)="scrollTo(link.toLowerCase())"
+                            [class]="activeSection === link.toLowerCase() ? 
+                          'text-blue-500 border-b-2 border-blue-500 px-3 py-2 rounded-none text-sm font-medium transition-all duration-200 cursor-pointer' : 
+                          'text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer'">
+                            {{link}}
+                        </a>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button (click)="toggleMenu()"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <ion-icon [name]="isMenuOpen ? 'close-outline' : 'menu-outline'" class="h-6 w-6"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div [class.hidden]="!isMenuOpen" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
+                <a *ngFor="let link of navLinks" (click)="scrollTo(link.toLowerCase())"
+                    [class]="activeSection === link.toLowerCase() ? 
+                      'text-blue-500 block px-3 py-2 rounded-md text-base font-medium border-l-4 border-blue-500' : 
+                      'text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer'">
+                    {{link}}
+                </a>
+                <button
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 animate-gradient"></div>
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-6xl font-bold mb-6 animate-fade-in">
+                <span class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    Creative Developer
+                </span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-delayed">
+                Crafting beautiful digital experiences with modern web technologies
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delayed-2">
+                <button
+                    class="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-200">
+                    View Projects
+                </button>
+                <button
+                    class="px-8 py-3 border border-white/20 hover:bg-white/10 rounded-lg font-medium transition-colors duration-200">
+                    Contact Me
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80"
+                        alt="Workspace" class="rounded-lg shadow-xl">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg"></div>
+                </div>
+                <div class="mt-10 lg:mt-0">
+                    <h2
+                        class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                        About Me
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        I'm a passionate developer with a keen eye for design and a love for creating seamless user
+                        experiences.
+                        With expertise in modern web technologies, I bring ideas to life through clean code and creative
+                        solutions.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h3 class="text-2xl font-bold text-blue-500">5+</h3>
+                            <p class="text-gray-400">Years Experience</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h3 class="text-2xl font-bold text-purple-500">100+</h3>
+                            <p class="text-gray-400">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Skills & Expertise
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div *ngFor="let skill of skills" class="relative">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-300 font-medium">{{skill.name}}</span>
+                            <span class="text-gray-400">{{skill.level}}%</span>
+                        </div>
+                        <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
+                                [style.width.%]="skill.level"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-white">Additional Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div *ngFor="let skill of ['Git', 'Docker', 'AWS', 'GraphQL', 'MongoDB', 'PostgreSQL']"
+                            class="px-4 py-2 bg-gray-800 rounded-lg text-center text-gray-300 hover:bg-gray-700 transition-colors duration-200">
+                            {{skill}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Services
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div *ngFor="let service of services"
+                    class="bg-gray-800 p-6 rounded-lg hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <ion-icon [name]="service.icon" class="w-8 h-8"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">{{service.title}}</h3>
+                    <p class="text-gray-400">{{service.description}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Get in Touch
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-white">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <ion-icon name="mail-outline" class="w-6 h-6 text-blue-500"></ion-icon>
+                            <span class="text-gray-300">contact example.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <ion-icon name="call-outline" class="w-6 h-6 text-blue-500"></ion-icon>
+                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <ion-icon name="location-outline" class="w-6 h-6 text-blue-500"></ion-icon>
+                            <span class="text-gray-300">San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors duration-200">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3
+                        class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                        Portfolio
+                    </h3>
+                    <p class="text-gray-400 mt-2">Crafting digital experiences</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <ion-icon name="logo-github" class="w-6 h-6"></ion-icon>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <ion-icon name="logo-linkedin" class="w-6 h-6"></ion-icon>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <ion-icon name="logo-twitter" class="w-6 h-6"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; {{2024}} Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</ion-content>

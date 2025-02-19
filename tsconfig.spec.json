@@ -1,0 +1,83 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine"
+    ]
+  },
+  "files": [
+    "src/test.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
+}
+// @keyframes gradient {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }
+
+// .animate-gradient {
+//   background: linear-gradient(
+//     -45deg,
+//     #1a1a2e,
+//     #16213e,
+//     #1b2d4d,
+//     #2a3b5c,
+//     #3b4969,
+//     #4c5775
+//   );
+//   background-size: 400% 400%;
+//   animation: gradient 15s ease infinite;
+// }
+
+// .text-gradient {
+//   background: linear-gradient(to right, #a855f7, #ec4899);
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   color: transparent;
+//   background-size: 100% auto;
+//   animation: textShine 3s ease-in-out infinite;
+// }
+
+// @keyframes textShine {
+//   0% {
+//     background-position: 0% center;
+//   }
+//   50% {
+//     background-position: 100% center;
+//   }
+//   100% {
+//     background-position: 0% center;
+//   }
+// }
+
+// .hover-lift {
+//   @apply transition-transform duration-300 hover:-translate-y-1;
+// }
+
+// // Ionic overrides
+// ion-content {
+//   --background: transparent;
+// }
+
+// ion-toolbar {
+//   --background: transparent;
+// }
+
+// ion-button {
+//   --border-radius: 0.5rem;
+//   font-weight: 500;
+//   text-transform: none;
+// }

@@ -1,0 +1,122 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @keyframes gradient {
+//     0% {
+//       background-position: 0% 50%;
+//     }
+//     50% {
+//       background-position: 100% 50%;
+//     }
+//     100% {
+//       background-position: 0% 50%;
+//     }
+//   }
+  
+//   .animate-gradient {
+//     background: linear-gradient(
+//       -45deg,
+//       #1a1a2e,
+//       #16213e,
+//       #1b2d4d,
+//       #2a3b5c,
+//       #3b4969,
+//       #4c5775
+//     );
+//     background-size: 400% 400%;
+//     animation: gradient 15s ease infinite;
+//   }
+  
+//   .text-gradient {
+//     background: linear-gradient(to right, #a855f7, #ec4899);
+//     -webkit-background-clip: text;
+//     background-clip: text;
+//     color: transparent;
+//     background-size: 100% auto;
+//     animation: textShine 3s ease-in-out infinite;
+//   }
+  
+//   @keyframes textShine {
+//     0% {
+//       background-position: 0% center;
+//     }
+//     50% {
+//       background-position: 100% center;
+//     }
+//     100% {
+//       background-position: 0% center;
+//     }
+//   }
+  
+//   .hover-lift {
+//     @apply transition-transform duration-300 hover:-translate-y-1;
+//   }
+  
+//   // Ionic overrides
+//   ion-content {
+//     --background: transparent;
+//   }
+  
+//   ion-toolbar {
+//     --background: transparent;
+//     backdrop-filter: blur(10px);
+//   }
+  
+//   ion-button {
+//     --border-radius: 0.5rem;
+//     font-weight: 500;
+//     text-transform: none;
+//   }
+//   html {
+//     scroll-behavior: smooth;
+//   }
+//   ion-header {
+//     position: sticky;
+//     top: 0;
+//     z-index: 999;
+//     background-color: transparent;
+//   }
+  
+  
+  
+//   body {
+//     @apply bg-gray-900;
+//   }

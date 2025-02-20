@@ -2,7 +2,9 @@ import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { menuOutline, closeOutline, codeOutline, brushOutline, serverOutline, globeOutline, mailOutline, callOutline, locationOutline, logoGithub, logoLinkedin, logoTwitter } from 'ionicons/icons';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -22,9 +24,10 @@ export class HomePage {
   activeSection = 'home';
   navLinks = ['Home', 'About', 'Skills', 'Services', 'Contact'];
   isScrolled = false;
-  constructor() {
+  constructor(private location: Location) { 
     addIcons({mailOutline,callOutline,locationOutline,logoGithub,logoLinkedin,logoTwitter,menuOutline,closeOutline,codeOutline,brushOutline,serverOutline,globeOutline});
   }
+  
 
   // @HostListener('window:scroll', ['$event'])
   @HostListener('ionScroll', ['$event'])
@@ -33,36 +36,61 @@ export class HomePage {
     this.checkActiveSection();
   }
 
-  checkActiveSection() {
-    const sections = this.navLinks.map(link => ({
-      id: link.toLowerCase(),
-      element: document.getElementById(link.toLowerCase())
-    }));
+ 
+  
+ 
+checkActiveSection() {
+  const sections = this.navLinks.map(link => ({
+    id: link.toLowerCase(),
+    element: document.getElementById(link.toLowerCase())
+  }));
 
-    for (const section of sections) {
-      if (section.element) {
-        const rect = section.element.getBoundingClientRect();
-        if (rect.top <= 100 && rect.bottom >= 100) {
+  for (const section of sections) {
+    if (section.element) {
+      const rect = section.element.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom >= 100) {
+        if (this.activeSection !== section.id) {
           this.activeSection = section.id;
-          break;
+          this.location.replaceState(section.id); // URL update on scroll
         }
+        break;
       }
     }
   }
+}
+
 
   skills = [
-    { name: 'React', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'UI/UX Design', level: 75 },
-    { name: 'DevOps', level: 70 }
+    {
+      name: 'Angular',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+    },
+    { 
+      name: 'TypeScript',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+    },
+    {
+      name: 'React Native',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    },
+    {
+      name: 'Ionic',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg',
+    },
+    {
+      name: 'Firebase',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+    }
   ];
+  
+  additionalSkills = ['Git', 'Docker', 'AWS', 'GraphQL', 'MongoDB', 'PostgreSQL'];
+  
 
   services = [
     {
       icon: 'code-outline',
-      title: 'Web Development',
-      description: 'Building responsive and performant web applications using modern frameworks and best practices.'
+      title: 'Website Development',
+      description: 'We design and develop stunning, responsive websites that captivate audiences and drive resultss.'
     },
     {
       icon: 'brush-outline',
@@ -78,18 +106,40 @@ export class HomePage {
       icon: 'globe-outline',
       title: 'API Integration',
       description: 'Seamlessly connecting applications with third-party services and APIs.'
-    }
+    },
+    {
+      icon: 'laptop-outline',
+      title: 'Web App Development',
+      description: 'Developing fast, secure, and scalable web applications that deliver exceptional functionality and performance.'
+    },
+    {
+      icon: 'phone-portrait-outline',
+      title: 'Mobile App development',
+      description: 'Building high-performance Android & iOS apps using modern frameworks for a seamless user experience.'
+    },
+    {
+      icon: 'speedometer-outline',
+      title: 'SEO & Performance Optimization',
+      description: 'Improving website speed, responsiveness, and search engine rankings for better visibility.'
+    },
+    {
+      icon: 'cloud-outline',
+      title: 'Firebase Backend & Authentication',
+      description: ' Description: Implementing real-time databases, authentication, and hosting with Firebase for scalable apps.'
+    },
   ];
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  async scrollTo(elementId: string) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      await this.content.scrollToPoint(0, element.offsetTop, 500); // Reduced from 1000ms to 500ms for faster scrolling
-    }
-    this.isMenuOpen = false;
+ 
+async scrollTo(elementId: string) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    await this.content.scrollToPoint(0, element.offsetTop, 500); 
+    this.location.replaceState(elementId); // Update URL without reloading
   }
+  this.isMenuOpen = false;
+}
 }

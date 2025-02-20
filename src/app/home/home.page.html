@@ -97,21 +97,18 @@
                         About Me
                     </h2>
                     <p class="text-gray-300 text-lg mb-6">
-                        I'm a passionate developer with a keen eye for design and a love for creating seamless user
-                        experiences.
-                        With expertise in modern web technologies, I bring ideas to life through clean code and creative
-                        solutions.
+                        Hello, I'm Rizwan Makki! <br>
+                        I am a highly skilled and passionate App Developer My journey in development has been shaped by
+                        continuous learning, innovation, and a drive to push boundaries.
+
+                        I firmly believe that mistakes are stepping stones to mastery, and I embrace every challenge as
+                        an opportunity to grow and refine my skills. Whether it’s designing sleek user interfaces,
+                        optimizing performance, or building Apps & web applications, I thrive on turning ideas into
+                        reality.
+
+                        Let's build something amazing together!
                     </p>
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="p-4 bg-gray-800 rounded-lg">
-                            <h3 class="text-2xl font-bold text-blue-500">5+</h3>
-                            <p class="text-gray-400">Years Experience</p>
-                        </div>
-                        <div class="p-4 bg-gray-800 rounded-lg">
-                            <h3 class="text-2xl font-bold text-purple-500">100+</h3>
-                            <p class="text-gray-400">Projects Completed</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -120,34 +117,22 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <h2 class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 Skills & Expertise
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div *ngFor="let skill of skills" class="relative">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-gray-300 font-medium">{{skill.name}}</span>
-                            <span class="text-gray-400">{{skill.level}}%</span>
-                        </div>
-                        <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
-                                [style.width.%]="skill.level"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-white">Additional Skills</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <div *ngFor="let skill of ['Git', 'Docker', 'AWS', 'GraphQL', 'MongoDB', 'PostgreSQL']"
-                            class="px-4 py-2 bg-gray-800 rounded-lg text-center text-gray-300 hover:bg-gray-700 transition-colors duration-200">
-                            {{skill}}
-                        </div>
-                    </div>
+        
+             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 ">
+                <!-- Skills Cards -->
+                <div *ngFor="let skill of skills" class="bg-gray-800 p-6 rounded-xl flex flex-col items-center shadow-lg hover:shadow-xl transition-shadow">
+                    <!-- Skill Logo -->
+                    <img [src]="skill.logo" [alt]="skill.name" class="w-16 h-16 mb-4">
+                    <!-- Skill Name -->
+                    <span class="text-gray-300 font-medium text-lg">{{ skill.name }}</span>
                 </div>
             </div>
         </div>
+        
+        
     </section>
 
     <!-- Services Section -->
@@ -183,15 +168,15 @@
                     <div class="space-y-6">
                         <div class="flex items-center space-x-4">
                             <ion-icon name="mail-outline" class="w-6 h-6 text-blue-500"></ion-icon>
-                            <span class="text-gray-300">contact example.com</span>
+                            <span class="text-gray-300">Rizwanarifmakki&#64;gmail.com</span>
                         </div>
                         <div class="flex items-center space-x-4">
                             <ion-icon name="call-outline" class="w-6 h-6 text-blue-500"></ion-icon>
-                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                            <span class="text-gray-300">+92 3302711639</span>
                         </div>
                         <div class="flex items-center space-x-4">
                             <ion-icon name="location-outline" class="w-6 h-6 text-blue-500"></ion-icon>
-                            <span class="text-gray-300">San Francisco, CA</span>
+                            <span class="text-gray-300">A84(a), Sector 15 A-2, Scheme 33, Karachi, Sindh, PK 75330</span>
                         </div>
                     </div>
                 </div>
@@ -235,19 +220,21 @@
                     <p class="text-gray-400 mt-2">Crafting digital experiences</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                    <a href="https://github.com/RizwanMakki" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-200">
                         <ion-icon name="logo-github" class="w-6 h-6"></ion-icon>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                    <a href="https://www.linkedin.com/in/rizwanarif-makki-5b79312ba/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-200">
                         <ion-icon name="logo-linkedin" class="w-6 h-6"></ion-icon>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200" target="_blank">
                         <ion-icon name="logo-twitter" class="w-6 h-6"></ion-icon>
                     </a>
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-                <p>&copy; {{2024}} Portfolio. All rights reserved.</p>
+                <p>&copy; {{2025}} Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>

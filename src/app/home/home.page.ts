@@ -62,6 +62,14 @@ checkActiveSection() {
 
   skills = [
     {
+      name: 'JavaScript',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+    },
+    {
+      name: 'Tailwind CSS',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'
+    },
+    {
       name: 'Angular',
       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
     },
@@ -80,7 +88,9 @@ checkActiveSection() {
     {
       name: 'Firebase',
       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
-    }
+    },
+  
+
   ];
   
   additionalSkills = ['Git', 'Docker', 'AWS', 'GraphQL', 'MongoDB', 'PostgreSQL'];
